@@ -1,12 +1,12 @@
 [project]
-name = "rhiza"
+name = "qstruct"
 version = "0.8.16"
-description = "Reusable configuration templates for modern Python projects"
+description = "Quantitative Structuring"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [
-  { name = "Thomas Schmelzer" }
+  { name = "Mark Richardson" }
 ]
 keywords = ["templates", "configuration", "ci", "ruff"]
 classifiers = [
@@ -21,7 +21,9 @@ classifiers = [
     "Intended Audience :: Developers",
     "Topic :: Software Development :: Build Tools",
 ]
-dependencies = []
+dependencies = [
+    "chebfun>=0.0.0,<1.0",   # Chebfun for numerical computing (v0.x for stability, 1.0+ may have breaking changes)
+]
 
 [dependency-groups]
 dev = [
@@ -34,9 +36,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/jebel-quant/rhiza"
-Repository = "https://github.com/jebel-quant/rhiza"
-Issues = "https://github.com/jebel-quant/rhiza/issues"
+Homepage = "https://github.com/markrichardson/qstruct"
+Repository = "https://github.com/markrichardson/qstruct"
+Issues = "https://github.com/markrichardson/qstruct/issues"
 
 [tool.deptry.package_module_name_map]
 marimo = "marimo"
