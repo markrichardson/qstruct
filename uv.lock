@@ -985,7 +985,7 @@ wheels = [
 [[package]]
 name = "qstruct"
 version = "0.8.16"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "chebfun" },
 ]
