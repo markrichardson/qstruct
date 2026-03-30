@@ -12,4 +12,4 @@ def greet(name: str) -> str:
 
 def approximate(func, domain=(-1, 1)):
     """Approximate a function using Chebyshev polynomials."""
-    return chebfun(func, domain)
+    return chebfun(func, list(domain))
