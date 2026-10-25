@@ -4,7 +4,7 @@ version = "0.8.16"
 description = "Quantitative Structuring"
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "MIT" }
+license = "MIT"
 authors = [
   { name = "Mark Richardson" }
 ]
@@ -17,7 +17,6 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
-    "License :: OSI Approved :: MIT License",
     "Intended Audience :: Developers",
     "Topic :: Software Development :: Build Tools",
 ]
@@ -26,12 +25,18 @@ dependencies = [
 ]
 
 [dependency-groups]
+test = [
+    "pytest>=8,<9",
+    "pytest-cov>=6,<7",
+    "pytest-timeout>=2,<3",
+    "hypothesis>=6.165.10,<7",
+]
 dev = [
     "marimo>=0.18.0,<1.0",   # Reactive notebook runtime for book/ examples (v0.18+ for streaming, <1.0 for API stability)
     "numpy>=2.4.0,<3.0",     # Numerical computing for notebook data analysis (v2.4+ includes 2.0 improvements, <3.0 avoids breaking changes)
     "plotly>=6.5.0,<7.0",    # Interactive visualization in notebooks (v6.5+ mature features, <7.0 for API stability)
     "pandas>=3,<3.1",        # Data manipulation for notebook examples (v3+ for modern APIs, <3.1 conservative after major release)
-    "pyyaml>=6.0,<7.0",      # YAML parsing for validation scripts (v6+ for security fixes, <7.0 for API stability)
+    "pyyaml>=6.0.2,<7.0",      # YAML parsing for validation scripts (v6+ for security fixes, <7.0 for API stability)
     # See docs/DEPENDENCIES.md for detailed version rationale
 ]
 
@@ -58,3 +63,42 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.wheel]
 packages = ["src/qstruct"]
 
+
+[tool.uv]
+default-groups = ["dev", "test"]
+
+[tool.bumpversion]
+current_version = "0.8.16"
+parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)(?:[-]?(?P<release>[a-z]+)[\\.]?(?P<pre_n>\\d+))?(?:\\+build\\.(?P<build_n>\\d+))?"
+serialize = ["{major}.{minor}.{patch}-{release}.{pre_n}+build.{build_n}", "{major}.{minor}.{patch}+build.{build_n}", "{major}.{minor}.{patch}-{release}.{pre_n}", "{major}.{minor}.{patch}"]
+search = "{current_version}"
+replace = "{new_version}"
+regex = false
+ignore_missing_version = false
+ignore_missing_files = false
+tag = false
+sign_tags = false
+tag_name = "v{new_version}"
+tag_message = "Bump version: {current_version} → {new_version}"
+allow_dirty = false
+commit = false
+message = "Chore: bump version {current_version} → {new_version}"
+commit_args = ""
+pre_commit_hooks = ["uv sync", "git add uv.lock"] # Ensure uv.lock is updated
+
+[tool.bumpversion.parts.release]
+optional_value = "prod"
+values = [
+    "dev",
+    "alpha",
+    "a",  # PEP 440 short form for alpha
+    "beta",
+    "b",  # PEP 440 short form for beta
+    "rc",
+    "prod"
+]
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = 'version = "{current_version}"'
+replace = 'version = "{new_version}"'

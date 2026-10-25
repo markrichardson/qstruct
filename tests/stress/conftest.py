@@ -5,7 +5,10 @@ Security Notes:
   They provide clear test failure messages and are expected in test code.
 """
 
+import pytest
 
+
+@pytest.hookimpl(optionalhook=True)
 def pytest_html_report_title(report):
     """Set the HTML report title."""
     report.title = "Stress Tests"

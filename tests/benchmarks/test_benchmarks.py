@@ -19,6 +19,7 @@ class TestExampleBenchmarks:
         """Example: Benchmark string concatenation."""
 
         def concatenate_strings():
+            """Concatenate a fixed sequence of integers."""
             result = ""
             for i in range(100):
                 result += str(i)
@@ -31,6 +32,7 @@ class TestExampleBenchmarks:
         """Example: Benchmark list comprehension."""
 
         def create_list():
+            """Build the list used by the benchmark."""
             return [i * 2 for i in range(1000)]
 
         result = benchmark(create_list)
@@ -40,6 +42,7 @@ class TestExampleBenchmarks:
         """Example: Benchmark dictionary operations."""
 
         def dictionary_ops():
+            """Populate a dictionary and sum its values."""
             data = {}
             for i in range(100):
                 data[f"key_{i}"] = i * 2
@@ -52,6 +55,7 @@ class TestExampleBenchmarks:
         """Example: Benchmark simple computation."""
 
         def compute_sum():
+            """Sum the benchmark range."""
             total = 0
             for i in range(1000):
                 total += i
