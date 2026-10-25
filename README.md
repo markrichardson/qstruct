@@ -147,7 +147,7 @@ ADRs help preserve the reasoning behind key decisions, making it easier for curr
 
 **Create a new ADR**: Use `make adr` to create a new ADR with AI assistance. The workflow will generate a comprehensive ADR document, update the index, and create a pull request for review.
 
-For more information about the ADR format and how to create new records, see the [ADR README](docs/adr/README.md).
+For more information about the ADR format and how to create new records, see the [ADR README](docs/adr/index.md).
 
 ## 📁 Available Templates
 
