@@ -119,18 +119,19 @@ Example:
 import pytest
 import concurrent.futures
 
+
 @pytest.mark.stress
 def test_concurrent_operation(stress_iterations, concurrent_workers):
     """Test concurrent execution of operation X."""
-    
+
     def perform_operation():
         # Operation to stress test
         return True
-    
+
     with concurrent.futures.ThreadPoolExecutor(max_workers=concurrent_workers) as executor:
         futures = [executor.submit(perform_operation) for _ in range(stress_iterations)]
         results = [f.result() for f in concurrent.futures.as_completed(futures)]
-    
+
     success_rate = sum(results) / len(results)
     assert success_rate == 1.0, f"Expected 100% success rate, got {success_rate * 100:.1f}%"
 ```

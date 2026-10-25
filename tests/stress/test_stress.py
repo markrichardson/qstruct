@@ -25,6 +25,7 @@ class TestStress:
         """Run many Fibonacci calculations concurrently."""
 
         def compute_fibonacci(n):
+            """Compute the nth Fibonacci number iteratively."""
             if n <= 1:
                 return n
             a, b = 0, 1
