@@ -5,7 +5,7 @@ repo_url: https://github.com/Jebel-Quant/rhiza
 repo_name: Jebel-Quant/rhiza
 
 docs_dir: docs
-site_dir: _mkdocs
+site_dir: _book
 
 theme:
   name: material
@@ -68,7 +68,7 @@ nav:
     - Security Policy: SECURITY.md
     - Security Testing: SECURITY_TESTING.md
   - Architecture Decision Records:
-    - Overview: adr/README.md
+    - Overview: adr/index.md
     - ADR-0001 Use Architecture Decision Records: adr/0001-use-architecture-decision-records.md
     - ADR-0002 Use uv for Python Package Management: adr/0002-use-uv-for-python-package-management.md
     - ADR-0003 Use Ruff for Linting and Formatting: adr/0003-use-ruff-for-linting-and-formatting.md
@@ -78,5 +78,5 @@ nav:
     - ADR-0007 Support Dual CI/CD (GitHub & GitLab): adr/0007-support-dual-cicd-github-and-gitlab.md
     - ADR-0008 Use Marimo for Interactive Notebooks: adr/0008-use-marimo-for-interactive-notebooks.md
     - ADR-0009 Use Pre-commit Hooks for Code Quality: adr/0009-use-pre-commit-hooks-for-code-quality.md
-  - Notebooks: notebooks.md
-  - Reports: reports.md
+  - Notebooks: notebooks/index.md
+  - Reports: reports/index.md
