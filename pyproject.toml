@@ -17,7 +17,6 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
-    "License :: OSI Approved :: MIT License",
     "Intended Audience :: Developers",
     "Topic :: Software Development :: Build Tools",
 ]
@@ -26,7 +25,15 @@ dependencies = [
 ]
 
 [dependency-groups]
+test = [
+    "pytest>=8.0",
+    "hypothesis>=6.98.0",
+    "pytest-benchmark>=5.3.1",
+    "pytest-html>=4.1",
+    "pytest-timeout>=2.3",
+]
 dev = [
+    { include-group = "test" },
     "marimo>=0.23.6,<1.0",   # Reactive notebook runtime for book/ examples (v0.18+ for streaming, <1.0 for API stability)
     "numpy>=2.4.6,<3.0",     # Numerical computing for notebook data analysis (v2.4+ includes 2.0 improvements, <3.0 avoids breaking changes)
     "plotly>=6.7.0,<7.0",    # Interactive visualization in notebooks (v6.5+ mature features, <7.0 for API stability)
@@ -57,4 +64,19 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/qstruct"]
+
+[tool.bumpversion]
+current_version = "0.8.16"
+commit = false
+tag = false
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = 'version = "{current_version}"'
+replace = 'version = "{new_version}"'
+
+[[tool.bumpversion.files]]
+filename = "src/qstruct/__init__.py"
+search = '__version__ = "{current_version}"'
+replace = '__version__ = "{new_version}"'
 
