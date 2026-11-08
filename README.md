@@ -377,10 +377,11 @@ README code blocks can be tested when tests are configured.
 ```python
 # Example code block
 import math
+
 print("Hello, World!")
 print(1 + 1)
 print(round(math.pi, 2))
-print(round(math.cos(math.pi/4.0), 2))
+print(round(math.cos(math.pi / 4.0), 2))
 ```
 
 ```result
