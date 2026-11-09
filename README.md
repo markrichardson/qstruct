@@ -1,6 +1,6 @@
 <div align="center">
 
-# <img src=".rhiza/assets/rhiza-logo.svg" alt="Rhiza Logo" width="30" style="vertical-align: middle;"> Rhiza 
+# <img src="docs/assets/rhiza-logo.svg" alt="Rhiza Logo" width="30" style="vertical-align: middle;"> Rhiza
 ![GitHub Release](https://img.shields.io/github/v/release/jebel-quant/rhiza?sort=semver&color=2FA4A9&label=rhiza)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -183,7 +183,7 @@ Rhiza organises its templates into **bundles** — pre-configured sets of relate
 
 **Tip:** Bundles marked **Standalone: ❌** cannot be used alone and must be combined with the bundles listed in the *Requires* column.
 
-For a complete reference of every file included in each bundle, see [`.rhiza/template-bundles.yml`](.rhiza/template-bundles.yml).
+See the [Rhiza template repository](https://github.com/jebel-quant/rhiza) for the current bundle definitions.
 
 ## 🧩 Integration Guide
 
@@ -225,7 +225,7 @@ Keep your templates up-to-date with automated sync workflows:
 - The `.github/workflows/sync.yml` workflow runs on schedule or manually
 - Creates pull requests with template updates
 
-For GitHub Token configuration and details, see the [GitHub Actions documentation](.github/README.md).
+For GitHub Token configuration and details, see the [GitHub Actions configuration](.github/CONFIG.md).
 
 ### What to Expect After Integration
 
@@ -368,7 +368,7 @@ make presentation-pdf    # Generate PDF slides
 make presentation-serve  # Serve with live reload
 ```
 
-For detailed information about creating and customising presentations, see [presentation/README.md](presentation/README.md).
+For detailed information about creating and customising presentations, see [the presentation guide](docs/PRESENTATION.md).
 
 ### Documentation Examples
 
@@ -393,7 +393,7 @@ Hello, World!
 
 ### Documentation Customisation
 
-For information on customising the look and feel of your documentation, see [book/README.md](book/README.md).
+For information on customising the look and feel of your documentation, see [the book configuration](mkdocs.yml).
 
 ### Python Version Management
 
@@ -401,14 +401,11 @@ The `.python-version` file specifies the default Python version for local develo
 
 ### Makefile Customisation
 
-Rhiza uses a modular Makefile system with extension points (hooks) for customisation. See [.rhiza/make.d/README.md](.rhiza/make.d/README.md) for the complete guide including:
-- Extension points and hooks
-- Custom target creation
-- Module ordering conventions
+The [Makefile](Makefile) forwards project tasks to `rhiza-task`.
 
 ### Custom Build Scripts
 
-For system dependencies and custom build steps, see [docs/CUSTOMIZATION.md](docs/CUSTOMIZATION.md).
+For system dependencies and custom build steps, see [the extension guide](docs/EXTENDING_RHIZA.md).
 
 ### Private GitHub Packages
 
@@ -422,11 +419,11 @@ my-package = { git = "https://github.com/jebel-quant/my-package.git", rev = "v1.
 
 **Git authentication is already configured** in all Rhiza workflows (CI, book, release, etc.) using the default `GITHUB_TOKEN`, which automatically provides read access to repositories in the same organization.
 
-For custom workflows or local development setup, see [.rhiza/docs/PRIVATE_PACKAGES.md](.rhiza/docs/PRIVATE_PACKAGES.md).
+For custom workflows or local development setup, see [GitHub Actions configuration](.github/CONFIG.md).
 
 ### Release Management
 
-For information on versioning, tagging, and publishing releases, see [.rhiza/docs/RELEASING.md](.rhiza/docs/RELEASING.md).
+For information on versioning, tagging, and publishing releases, see [the release workflow](.github/workflows/rhiza_release.yml).
 
 ### Dev Container
 
@@ -446,18 +443,6 @@ The `.github/` directory contains comprehensive GitHub Actions workflows for:
 - Docker and devcontainer validation
 - Release automation
 - Template synchronization
-
-### GitLab CI/CD
-
-Rhiza provides GitLab CI/CD workflow configurations with feature parity to GitHub Actions. The `.gitlab/` directory includes workflows for CI, validation, dependency checking, documentation, sync, and releases.
-
-**Quick setup:**
-```bash
-cp -r .gitlab/ /path/to/your/project/
-cp .gitlab-ci.yml /path/to/your/project/
-```
-
-For complete GitLab setup instructions, configuration variables, and troubleshooting, see **[.gitlab/README.md](.gitlab/README.md)**.
 
 ## 📋 Project Maintainability
 
